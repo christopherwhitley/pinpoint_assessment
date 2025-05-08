@@ -1,0 +1,17 @@
+meta {
+  name: Get Jobs
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://developers-test.pinpointhq.com/api/v1/jobs
+  body: none
+  auth: apikey
+}
+
+auth:apikey {
+  key: X-API-KEY
+  value: a8hd4NeeSzWos6VB4BdR2M31
+  placement: header
+}

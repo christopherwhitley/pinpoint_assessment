@@ -1,0 +1,30 @@
+meta {
+  name: My endpoint
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://7c09-2a02-c7c-fe3c-3a00-7430-9297-1dea-9d0f.ngrok-free.app/webhooks/pinpoint
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "event": "application_hired",
+    "triggeredAt": 1614687278,
+    "data": {
+      "application": {
+        "id": 8903742
+      },
+      "job": {
+        "id": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+meta {
+  name: hibob - Get employees
+  type: http
+  seq: 5
+}
+
+post {
+  url: https://api.hibob.com/v1/people/search
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: SERVICE-11334
+  password: KFJgdMc2uO1ojIgEKEgAQnqDK2zja8RDSAN7MuPP
+}
+
+body:json {
+  {
+    "showInactive": true
+  }
+}
