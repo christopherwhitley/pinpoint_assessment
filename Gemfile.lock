@@ -109,6 +109,11 @@ GEM
       railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.1)
+    faraday (1.2.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords
+    faraday_middleware (1.2.1)
+      faraday (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -140,6 +145,7 @@ GEM
     mini_portile2 (2.8.8)
     minitest (5.25.5)
     msgpack (1.8.0)
+    multipart-post (2.4.1)
     mutex_m (0.3.0)
     net-imap (0.4.22)
       date
@@ -209,6 +215,7 @@ GEM
     reline (0.6.1)
       io-console (~> 0.5)
     rexml (3.4.1)
+    ruby2_keywords (0.0.5)
     rubyzip (2.4.1)
     securerandom (0.3.2)
     selenium-webdriver (4.26.0)
@@ -260,6 +267,8 @@ DEPENDENCIES
   capybara
   debug
   dotenv-rails
+  faraday
+  faraday_middleware
   importmap-rails
   jbuilder
   puma (>= 5.0)

@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: https://api.hibob.com/v1/people/search
+  url: https://api.hibob.com/v1/people/search/
   body: json
   auth: basic
 }
@@ -17,6 +17,13 @@ auth:basic {
 
 body:json {
   {
-    "showInactive": true
+    "filters": [
+      {
+        "fieldPath": "email",
+        "operator": "equals",
+        "values": ["arnoldo.borer@pinpoint.dev"]
+      }
+    ]
   }
+  
 }
