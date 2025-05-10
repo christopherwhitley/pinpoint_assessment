@@ -21,11 +21,11 @@ module Api
       request.body = payload
       response = http.request(request)
 
-      if response.status == 200
+      if response.code.to_i == 200
         Rails.logger.info "Employee Created in HiBob at #{Time.current}"
         return JSON.parse(response.body)
       else
-        Rails.logger.info "Failed to create employee: #{response.status}, Body: #{response.body}"
+        Rails.logger.info "Failed to create employee: #{response.code.to_i}, Body: #{response.body}"
         return nil
       end
 

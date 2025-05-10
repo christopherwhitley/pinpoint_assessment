@@ -16,11 +16,11 @@ module Api
       response = http.request(request)
       JSON.parse(response.body)
 
-      if response.status == 200
+      if response.code.to_i == 200
         Rails.logger.info "Fetched Pinpoint application, application ID: #{id}"
         return JSON.parse(response.body)
       else
-        puts "Failed to fetch Pinpoint application: #{response.status}, Body: #{}"
+        puts "Failed to fetch Pinpoint application: #{response.code.to_i}, Body: #{response.body}"
         return nil
       end
     end
@@ -50,17 +50,16 @@ module Api
           }
         }
       }.to_json
+
+      response = http.request(request)
       
-      if response.status == 200
+      if response.code.to_i == 201
         Rails.logger.info "Comment added to Pinpoint application, application ID: #{application_id}"
         return JSON.parse(response.body)
       else
-        puts "Failed to upload resume: #{response.status}"
+        puts "Failed to add comment: #{response.code.to_i}"
         return nil
       end
-
-      response = http.request(request)
-      JSON.parse(response.body)
     end
   end
 end

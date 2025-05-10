@@ -47,11 +47,6 @@ class CreateEmployeeService
     attachments = applicant_data['data']['attributes']['attachments']
     url = attachments.find { |att| att["context"] == "pdf_cv" }&.dig("url")
     download_resume(url)
-    if file.nil?
-      puts "No file found at URL."
-    else
-      puts "Downloaded file: #{file.path}, Size: #{file.size}"
-    end
   end
   
   def download_resume(url)
@@ -59,7 +54,7 @@ class CreateEmployeeService
     file.binmode
     file.write URI.open(url).read
     file.rewind
-    puts "Saved temp file at: #{file.path} (#{file.size} bytes)"
+    Rails.logger.info "Saved temp file at: #{file.path} (#{file.size} bytes)"
     file
   end
 end
